@@ -18,38 +18,65 @@ Sebelum sistem ini dibuat, maka jika perlu ada data umat yang dimasukkan ke sist
 \end{enumerate}
 Prosedur ini membutuhkan waktu yang lama dan kurang efisien, admin paroki memiliki kemungkinan untuk melakukan kesalahan dalam proses input data, karena admin paroki perlu untuk membaca ulang dan mengetikkan kembali data yang dituliskan di atas formulir kedalam sistem input data.
 
-Pada skripsi ini yang berjudul Pemanfaatan QR Code dalam Input Data Odoo, Studi Kasus: SIMU, akan dibuat sebuah sistem yang dapat melakukan input data secara otomatis memanfaatkan QR Code pada input data Odoo, sehingga program yang dibuat ini akan menjadi dua aplikasi utama yaitu membuat halaman html sederhana (website) yang berisi form SIMU dan membuat sistem Odoo yang berisi data field yang menyerupai data umat SIMU dan sistem yang mampu memindai QR Code.
+Pada skripsi ini yang berjudul Pemanfaatan QR Code dalam Input Data Odoo, Studi Kasus: SIMU, akan dibuat sebuah sistem yang dapat melakukan input data secara otomatis memanfaatkan QR Code pada input data Odoo, sehingga program yang dibuat ini akan menjadi dua aplikasi utama yaitu membuat halaman html sederhana (website) yang berisi form SIMU dan membuat sistem Odoo yang berisi data field yang menyerupai data umat SIMU dan sistem yang mampu memindai QR Code. Quick Response Code (QR Code) merupakan gambar dua dimensi yang memiliki kemampuan untuk menyimpan data. QR Code biasa digunakan untuk menyimpan data berupa teks, baik itu numerik, alfanumerik, maupun kode biner \cite{nugraha2011pengembangan}.
 
-Program ini bertujuan agar umat dan admin paroki dapat lebih mudah dalam pengisian formulir, skripsi ini akan dirancang menggunakan Odoo. Odoo adalah aplikasi Enterprise Resource Planning open source berbasis Bahasa Python. 
-
-QR Code (Quick Response Code) merupakan gambar dua dimensi yang memiliki kemampuan untuk menyimpan data. QR Code biasa digunakan untuk menyimpan data berupa teks, baik itu numerik, alfanumerik, maupun kode biner \cite{qrcode:13:median}.
-
-
-
-
+Program ini bertujuan agar umat dan admin paroki dapat lebih mudah dalam pengisian formulir, skripsi ini akan dirancang menggunakan Odoo. Odoo adalah aplikasi Enterprise Resource Planning open source berbasis Bahasa Python. Enterprise Resource Planning (ERP) adalah sebuah sistem informasi terintegrasi yang dapat mengakomodasi kebutuhan–kebutuhan informasi secara spesifik yang ada di perusahaan. Odoo adalah rangkaian aplikasi bisnis open source yang mencakup banyak kebutuhan, beberapa diantaranya adalah eCommerce, akuntansi, inventaris dan manajemen proyek \cite{webodoo}.
 
 \section{Rumusan Masalah}
 \label{sec:rumusan}
-Bagian ini akan diisi dengan penajaman dari masalah-masalah yang sudah diidentifikasi di bagian sebelumnya. 
+Rumusan masalah yang akan dibahas di skripsi ini adalah sebagai berikut :
+\begin{enumerate}
+	\item Bagaimana proses pencatatan data agar dapat lebih efisien?
+	\item Bagaimana agar pencatatan data dapat dipindai oleh sistem SIMU?
+	\item Bagaimana agar umat tidak perlu melakukan penulisan tangan namun dapat diakses ke SIMU?
+\end{enumerate} 
 
 
 \section{Tujuan}
 \label{sec:tujuan}
-Akan dipaparkan secara lebih terperinci dan tersturkur apa yang menjadi tujuan pembuatan template skripsi ini
+Tujuan yang ingin dicapai dari penulisan skripsi ini sebagai berikut :
+\begin{enumerate}
+	\item Membangun halaman HTML yang yang responsif (terbaca mudah di ponsel) dan berisikan formulir sistem informasi manajemen umat (SIMU).
+	\item Membangkitkan kode QR berdasarkan data yang telah diisi untuk nantinya dibaca oleh Odoo.
+	\item Membangun sistem Odoo yang berisi data yang field-fieldnya menyerupai data umat dan sistem mampu memindai kode QR dari halaman formulir yang telah diisi oleh umat.
+\end{enumerate}
 
 
 \section{Batasan Masalah}
 \label{sec:batasan}
-Untuk mempermudah pembuatan template ini, tentu ada hal-hal yang harus dibatasi, misalnya saja bahwa template ini bukan berupa style \LaTeX{} pada umumnya (dengan alasannya karena belum mampu jika diminta membuat seperti itu)
+Beberapa batasan yang dibuat terkait dengan pengerjaan skripsi ini adalah sebagai berikut :
+\begin{enumerate}
+	\item Sistem yang dibuat bukan untuk mempercepat proses pengisian data, namun berfungsi untuk meningkatkan efisiensi proses pencatatan data, karena tidak diperlukan kembali penulisan tangan dan penyalinan data.
+\end{enumerate}
 
 
 \section{Metodologi}
 \label{sec:metlit}
-Tentunya akan diisi dengan metodologi yang serius sehingga templatenya terkesan lebih serius.
+Metodologi yang dilakukan pada skripsi ini adalah sebagai berikut :
+\begin{enumerate}
+	\item Melakukan studi literatur pembuatan modul Odoo.
+	\item Melakukan studi literatur User Experience yang baik di Mobile.
+	\item Menganalisis ukuran dan jumlah QR Code yang dibutuhkan.
+	\item Membangun sistem yang dapat dibuka di mobile dengan baik (responsive design), memunculkan keyboard yang tepat untuk input tertentu (contoh: nomor telepon menggunakan keypad), dan menyimpan data secara otomatis di penyimpanan lokal, sehingga saat dibuka kembali, umat dapat melanjukan pengisian.
+	\item Melakukan pengujian dan eksperimen.
+	\item Menulis dokumen skripsi.
+\end{enumerate}
 
 
 \section{Sistematika Pembahasan}
 \label{sec:sispem}
-Rencananya Bab 2 akan berisi petunjuk penggunaan template dan dasar-dasar \LaTeX.
-Mungkin bab 3,4,5 dapt diisi oleh ketiga jurusan, misalnya peraturan dasar skripsi atau pedoman penulisan, tentu jika berkenan.
-Bab 6 akan diisi dengan kesimpulan, bahwa membuat template ini ternyata sungguh menghabiskan banyak waktu.
+Sistematika penulisan setiap bab skripsi ini adalah sebagai berikut :
+\begin{itemize}
+	\item Bab 1 Pendahuluan
+	Membahas latar belakang, rumusan masalah, tujuan, batasan masalah, metodologi, dan sistematika pembahasan.
+	\item Bab 2 Landasan Teori
+	Membahas teori-teori yang berhubungan dengan penelitian ini, yaitu Odoo, QR Code, Python
+	\item Bab 3 Analisis
+	Membahas analisis terhadap sistem Odoo dan SIMU.
+	\item Bab 4 Perancangan
+	Membahas perancangan fitur yang akan diimplementasikan pada halaman website formulir dan SIMU.
+	\item Bab 5 Implementasi dan Pengujian
+	Membahas implementasi fitur Odoo pada studi kasus SIMU dan pengujian yang dilakukan.
+	\item Bab 6 Kesimpulan dan Saran
+	Membahas kesimpulan dari penelitian ini dan saran untuk penelitian berikutnya.
+\end{itemize}
