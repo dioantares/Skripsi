@@ -8,6 +8,31 @@ Odoo adalah aplikasi \textit{Enterprise Resource Planning} (ERP) open source ada
 
 \subsection{Struktur Direktori}
 \label{sec:strukturDirektori}
+Pada bagian ini akan dibahas struktur direktori pada Odoo, salah satunya adalah Odoo Modul. Modul Odoo adalah perpaduan antara server dan client yang disatukan dalam satu modul yang dapat diakses atau dimuat melalui database. Modul Odoo adalah kumpulan fungsi dan data yang dapat melakukan berbagai hal dan tujuan. Segala sesuatu pada Odoo dimulai pada suatu modul. Penggunaan modul ini sendiri dapat dilakukan secara bebas sesuai dengan kebutuhan yang diperlukan oleh pengguna. Modul utama yang dapat dilihat oleh pengguna dapat berbentuk sebagai Aplikasi, namun sebagian besar modul bukan hanya Aplikasi. Modul juga dapat disebut sebagai addons dan direktori tempat server Odoo dapat menemukan addons yang dibuat oleh developer dapat dilihat pada folder addonspath \footnote{Modul Odoo \url{https://www.odoo.com/documentation/16.0/developer/tutorials/getting_started/01_architecture.html}}. 
+
+Komposisi pada modul dapat berisi sejumlah elemen, terdapat beberapa element yaitu:
+
+\begin{enumerate}
+	\item \textit{Business Objects} \\
+	Objek bisnis dideklarasikan sebagai kelas Python. Objek bisnis ini secara otomatis dipetakan ke kolom basis data.
+	\item \textit{Object Views} \\
+	Menampilkan tampilan \textit{User Interface} (UI).
+	\item \textit{Data Files} \\
+	File XML atau CSV yang mendeklarasikan model data, beberapa contoh diantaranya adalah laporan, aturan keamanan, dan data demo.
+	\item \textit{Web Controllers} \\
+	Menanganin permintaan dari dari web browser.
+	\item \textit{Static Web Data}
+	File gambar, CSS, atau JavaScript yang digunakan oleh antarmuka website.
+\end{enumerate}
+
+Struktur modul pada Odoo adalah direktori di dalam direktori modul. Direktori modul ditentukan dengan menggunakan opsi pada bagian folder --addons-path, dan modul Odoo dideklarasikan menggunakan file manifest. Ketika suatu modul akan dibuat maka modul tersebut diatur sebagai sebuah file python dengan file init.py, file ini berisi instruksi impor untuk berbagai file python di dalam modul. Berikut adalah contoh direktori sebuah modul Odoo.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=1]{Gambar/modulOdoo.png}
+	\caption{Contoh Direktori Modul Odoo} 
+	\label{fig:modulOdoo}
+\end{figure}
 
 \subsection{Instalasi}
 \label{sec:instalasi}
@@ -93,8 +118,94 @@ Setelah server berhasil dijalankan (log INFO odoo.modules.loading: Modul sedang 
 
 \section{Sistem Informasi Manajemen Umat (SIMU)}
 \label{sec:simu}
-Sistem Informasi Manajemen Umat (SIMU) adalah aplikasi milik Keuskupan Bandung, aplikasi ini bertujuan untuk mencatat data umat dan dinamikanya (contohnya adalah sakramen). Keuskupan Bandung memiliki sekitar 108.000 umat, plus umat Sibolga. Cara kerja sistem ini adalah apabila terdapat ada umat baru yang sebelumnya tidak tercatat di SIMU, berikan print-out dari Formulir Data Umat kepada yang bersangkutan. Jika keluarga juga belum tercatat di SIMU, berikan pula print-out dari Formulir Keluarga Katolik / Rumah Tangga Katolik untuk diisi. Formulir ini biasanya dimiliki oleh paroki masing-masing. Jika tidak tersedia, bisa menghubungi admin keuskupan untuk mendapatkannya.
+Sistem Informasi Manajemen Umat (SIMU) adalah aplikasi milik Keuskupan Bandung, aplikasi ini bertujuan untuk mencatat data umat dan dinamikanya (contohnya adalah sakramen). Keuskupan Bandung memiliki sekitar 108.000 umat, plus umat Sibolga.
+ 
+\subsection{Umat Baru}
+\label{sec:umatBaru}
+Cara kerja sistem ini adalah apabila terdapat ada umat baru yang sebelumnya tidak tercatat di SIMU, maka admin akan memberikan print-out dari Formulir Data Umat kepada yang bersangkutan. Apabila keluarga belum tercatat di SIMU, maka admin akan memberikan print-out dari Formulir Keluarga Katolik atau Rumah Tangga Katolik untuk diisi. Formulir ini biasanya dimiliki oleh paroki masing-masing. Apabila tidak tersedia, maka umat dapat menghubungi admin keuskupan untuk mendapatkannya, dalam proses ini diharapkan umat dapat mengisi formulir dengan lengkap dan benar lalu dikembalikan ke sekretariat paroki. 
 
+Proses input data akan dilakukan oleh admin dengan cara admin memilih menu Umat, lalu admin akan klik tombol "Buat" di kiri atas, lalu data yang sudah ada akan diisikan ke dalam formulir, kemudian admin akan menyimpannya, dan untuk penulisan nama umat, umat diharapkan menuliskannya menggunakan huruf kapital secara keseluruhan. Apabila umat memiliki foto untuk dimasukan, umat dapat memasukan foto (opsional), semua hal tadi dapat diulangi oleh admin untuk seluruh umat baru yang akan dimasukkan datanya ke dalam sistem.
+
+\begin{enumerate}
+	\item Khusus Bayi \\
+	Apabila bayi yang baru lahir, umat diharapkan mengisikan "Belum Beragama" pada kolom agama, hal tersebut bertujuan supaya saat di masa depan akan menerima sakramen baptis, bayi tersebut muncul di daftar pilihan umat yang belum menjadi Katolik.
+	\item Umat Ganda \\
+	Apabila sudah ada sistem deteksi umat ganda, admin diperlukan untuk memastikan bahwa umat belum pernah masuk sistem SIMU sebelumnya.
+\end{enumerate}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=1]{Gambar/formSimu.png}
+	\caption{Contoh Formulir SIMU} 
+	\label{fig:formSimu}
+\end{figure}
+
+\subsection{Umat Pindah dari atau ke Paroki atau Lingkungan Lain}
+\label{sec:umatPindah}
+
+\begin{enumerate}
+	\item Seluruh Anggota Keluarga \\
+	Untuk memindahkan seluruh anggota keluarga ke paroki atau lingkungan baru, diperlukan prosedur sebagai berikut:
+	\begin{itemize}
+		\item Admin menari kepala keluarga dari keluarga katolik tersebut, kemudian klik “Pindah Paroki / Lingkungan”.
+		\item Admin memastikan seluruh dokumen sudah diverifikasi (KTP, Surat Baptis, Surat Konfirmasi dari Ketua Lingkungan), lalu admin menekan klik seluruh checkbox yang disediakan, termasuk “Pindahkan seluruh anggota keluarga”. Klik “Simpan” untuk menyimpan.
+		\item Admin mencari Keluarga Katolik dari umat tersebut. Setelah ditemukan, admin menekan klik Edit, dan sesuaikan kolom Paroki dan Lingkungan sesuai perubahan pada langkah sebelumnya.
+	\end{itemize}
+	\item Salah Satu Anggota Keluarga \\
+	Untuk melakukan perpindahan umat sebagai salah satu anggota keluarga, diperlukan prosedur sebagai berikut:
+	\begin{itemize}
+		\item Admin mencari umat yang bersangkutan.
+		\item Admin melakukan klik pada kolom “Paroki” dan atau “Lingkungan/KB”, dan mengisikan nilainya dengan paroki tujuan.
+		\item Jika umat tersebut berpindah karena menikah, maka umat tersebut harus dicabut dari keluarga yang lama dan dibuatkan atau dipindah ke keluarga baru, dengan cara admin melakukan edit, dan hapus umat tersebut dari keluarga tersebut melalui tab Anggota Keluarga, lalu admin membuat keluarga katolik baru melalui menu Umat dan mendaftarkan kedua anggota yang baru saja menikah (cukup satu keluarga per pasangan yang menikah).
+	\end{itemize}
+\end{enumerate}
+
+\subsection{Umat Masuk dari Keuskupan Lain}
+\label{sec:umatMasuk}
+Dari Keuskupan yang Menggunakan BIDUK:
+\begin{enumerate}
+	\item Umat melapor kepada admin SIMU paroki setempat
+	\item Admin Paroki SIMU berkoordinasi dengan admin SIMU Keuskupan melakukan permintaan atau request untuk menarik data umat yang bersangkutan dari BIDUK.
+	\item Admin SIMU Keuskupan masuk ke menu Catat Umat Masuk dan mengisikan data umat baru tersebut.
+	\item Admin BIDUK menerima permohonan tarik data.
+	\item Admin BIDUK mengonfirmasi perpindahan keluar kepada admin paroki SIMU tentang keberadaan umat/keluarga yang dimaksud
+\end{enumerate}
+
+\subsection{Umat Keluar ke Keuskupan Lain}
+\label{sec:umatKeluar}
+Menuju Keuskupan yang Menggunakan BIDUK, prasyarat dari proses ini adalah umat sudah berpindah secara tetap di paroki tujuan, langkah-langkahnya adalah sebagai berikut:
+\begin{enumerate}
+	\item Umat melapor kepada admin BIDUK paroki setempat
+	\item Admin BIDUK melakukan permintaan atau request untuk menarik data umat yang bersangkutan dari SIMU
+	\item Admin SIMU menerima permohonan tarik data pada menu Mutasi Antar-Keuskupan Umat Keluar
+	\item Admin SIMU mengonfirmasi perpindahan keluar kepada admin paroki SIMU tentang keberadaan umat atau keluarga yang dimaksud.
+	\item Apabila perpindahan telah dikonfirmasi, admin SIMU menekan tombol “Setuju” pada permohonan mutasi tersebut.
+	\item SIMU akan otomatis mengirimkan data umat atau keluarga yang berpindah ke BIDUK, dan pada SIMU sendiri umat tersebut akan diset sebagain “non-aktif”.
+\end{enumerate}
+
+Menuju Keuskupan Lain, pada prosedur ini tidak perlu menunggu umat yang bersangkutan untuk dikonfirmasi di keuskupan tujuan. langkah-langkahnya adalah sebagai berikut:
+\begin{enumerate}
+	\item Umat melapor kepada admin paroki setempat
+	\item Admin Paroki berkoordinasi dengan admin Keuskupan melakukan permintaan atau request untuk menarik data umat yang bersangkutan dari BIDUK
+	\item Admin Keuskupan masuk ke Umat tersebut dan klik Pindah ke Keuskupan
+	\item Admin Keuskupan mengisi data yang diminta, dan menekan tombol “Simpan”.
+\end{enumerate}
+
+\subsection{Data Umat dan/atau Keluarga Berubah}
+\label{sec:dataBerubah}
+Admin akan mencetak terlebih dahulu Formulir Data Umat dan Formulir Keluarga Katolik atau Rumah Tangga Katolik yang sudah terisi data SIMU, sehingga umat hanya perlu mengoreksi informasi yang perlu diubah tanpa harus menuliskan ulang semuanya kembali. Setelah umat mengembalikan formulir yang sudah dikoreksi, admin akan melakukan perubahan data pada SIMU, dengan cara mencari kembali umat yang bersangkutan, dan memilih tombol Edit. Admin akan memperbaharui data-data yang berubah, kemudian admin akan menekan tombol “Simpan” untuk menyimpan perubahan.
+
+\subsection{Umat Dibaptis}
+\label{sec:umatDibaptis}
+Umat yang dibaptis harus sudah tercatat sebelumnya di SIMU. Apabila belum terdaftar maka:
+
+\begin{enumerate}
+	\item Terdapat kemungkinan umat tersebut sudah didaftarkan di paroki lain. Dalam hal ini, umat harus berkoordinasi dengan paroki di mana umat tersebut berada.
+	\item Jika yakin bahwa umat tersebut belum terdaftar di SIMU, admin melakukan prosedur Umat Baru.
+\end{enumerate}
+
+Persyaratan untuk melakukan baptis adalah umat yang akan dibaptis perlu melengkapi persyaratan seperti akte kelahiran, formulir calon baptis yang sudah diisi, dan sebagainya. Untuk setiap persyaratan yang telah dipenuhi, admin memberikan tanda centang pada tab “Persyaratan” (dengan sebelumnya membuka entri sakramen tersebut). Dalam proses baptis, calon baptis atau orang tua calon baptis juga perlu mendapatkan pendampingan. Jika pendampingan sudah selesai, umat akan melakukan “Edit” kembali entri yang bersangkutan, masuk ke tab “Pendampingan”, dan isikan tanggal kelulusan. Jika tanggal kelulusan sudah diisi, dan persyaratan lengkap, maka status akan bergerak maju menjadi “Persyaratan Terpenuhi”.
+Setelah proses materalisasi dilakukan, tahapan selanjutnya yang terakhir adalah surat-surat, setelah surat dicetak, belum tentu bisa langsung diambil oleh umat yang bersangkutan. Begitupun status di SIMU, di mana surat belum terambil. 
 
 \section{Design untuk Aplikasi Mobile}
 \label{sec:designMobility}
@@ -104,6 +215,7 @@ Desain seluler biasa dilakukan oleh software engineers, graphic designers, conte
 
 Website adalah sekumpulan halaman yang terdiri dari beberapa laman yang berisi informasi dalam bentuk data digital baik berupa text, gambar, video, audio, dan animasi lainnya yang disediakan melalui jalur koneksi internet. Untuk membangun sebuah halaman website dibutuhkan sebuah bahasa pemrograman yang lebih dikenal dengan sebutan web scripting. 
 
+\cite{pressman2019software}
 
 \subsection{QR Code}
 QR Code, kependekan dari Quick Response Code, merupakan gambar dua dimensi yang memiliki kemampuan untuk menyimpan data. QR Code biasa digunakan untuk menyimpan data berupa teks, baik itu numerik, alfanumerik, maupun kode biner. QR Code banyak digunakan untuk keperluan komersil biasanya berisi link url ke alamat tertentu atau sekedar teks berisi iklan, promosi, dan lain-lain. QR Code adalah image dua dimensi yang merepresentasikan
