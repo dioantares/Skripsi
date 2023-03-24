@@ -209,15 +209,101 @@ Setelah proses materalisasi dilakukan, tahapan selanjutnya yang terakhir adalah 
 
 \section{Design untuk Aplikasi Mobile}
 \label{sec:designMobility}
-Perangkat seluler (smartphone), tablet, perangkat yang dapat dikenakan, perangkat game genggam telah menjadi umum di dunia komputasi. Desain seluler mencakup aktivitas teknis dan nonteknis yang meliputi beberapa hal, yaitu menetapkan tampilan dan nuansa aplikasi seluler (termasuk aplikasi seluler, WebApps, realitas virtual (VR), dan game), membuat tata letak estetika antarmuka pengguna, menetapkan ritme interaksi pengguna, mendefinisikan struktur arsitektur keseluruhan, mengembangkan konten dan fungsionalitas yang berada di dalam arsitektur, dan merencanakan navigasi yang terjadi di dalam produk seluler. 
+Perangkat seluler (smartphone), tablet, game console telah menjadi hal yang umum di dunia komputasi. Desain seluler membuat tata letak estetika antarmuka pengguna. Desain seluler biasa dilakukan oleh software engineers, graphic designers, content developers, security specialists, dan semua orang yang tergabung dalam pembuatan model design. Desain sangatlah penting karena memungkinkan suatu model yang dibuat dapat meningkat nilai kualitasnya. Salah satu contohnya adalah website. Website adalah sekumpulan halaman yang terdiri dari beberapa laman yang berisi informasi dalam bentuk data digital baik berupa text, gambar, video, audio, dan animasi lainnya yang disediakan melalui jalur koneksi internet. Untuk membangun sebuah halaman website dibutuhkan sebuah bahasa pemrograman yang lebih dikenal dengan sebutan web scripting. \cite{batubara2015perancangan}
 
-Desain seluler biasa dilakukan oleh software engineers, graphic designers, content developers, security specialists, dan semua tim yang tergabung dalam pembuatan model design. Desain sangatlah penting karena memungkinkan suatu model yang dibuat dapat meningkat nilai kualitasnya. Salah satu contohnya adalah website. 
+\subsection{Pertimbangan Teknis}
+\label{sec:teknis}
+Pertimbangan teknis yang dilakukan untuk menurunkan biaya yang sangat rendah pada kapabilitas menambahkan web pada perangkat sehari-hari seperti ponsel, kamera, dan tv dapat mengubah cara orang mengakses informasi dan menggunakan layanan jaringan. Berikut merupakan beberapa pertimbangan teknis yang harus ditangani oleh aplikasi mobile: 
 
-Website adalah sekumpulan halaman yang terdiri dari beberapa laman yang berisi informasi dalam bentuk data digital baik berupa text, gambar, video, audio, dan animasi lainnya yang disediakan melalui jalur koneksi internet. Untuk membangun sebuah halaman website dibutuhkan sebuah bahasa pemrograman yang lebih dikenal dengan sebutan web scripting. 
+\begin{enumerate}
+	\item Berbagai platform perangkat lunak dan keras \\
+	Tidak bisa untuk produk yang berjalan diberbagai platform, karena terdapat perbedaan perangkat lunak dan keras sehingga banyak perbedaan diantara perangkat yang akan digunakan, dan akan membutuhkan waktu dan uang yang cukup mahal
+	\item Terlalu banyak frameworks dan bahasa pemograman \\
+	Banyaknya bahasa pemograman dan frameworks yang digunakan membuat banyak perbedaan antara setiap perangkat mobile.
+	\item Terdapat banyak peraturan pada tempat publish aplikasi \\
+	Setiap platform memiliki toko aplikasi dan standarnya sendiri untuk menerima aplikasi yang dibuat. Sehingga setiap aplikasi mobile yang dibuat harus mengikuti setiap peraturan dan standar yang telah ada.
+	\item Siklus Aplikasi Mobile \\
+	Pada siklus pengembangan aplikasi mobile, waktu yang dibutuhkan cukup lama dalam proses pembuatannya, namun pada akhirnya pasar persaingan aplikasi ini sangatlah cepat, sehingga apabila aplikasi tidak berkembang, maka aplikasi tersebut sudah dipastikan kalah oleh aplikasi lain yang terus bermunculan.
+\end{enumerate}
+
+\subsection{User Interface Design}
+\label{sec:ui}
+Pengguna perangkat seluler berharap apabila mereka menggunakan aplikasi mobile, waktu belajar minimal yang diperlukan untuk mempelajari aplikasi tersebut diharapkan sangatlah cepat, oleh karena itu desainer aplikasi mobile harus bekerja keras dalam membuat suatu aplikasi. Berikut merupakan beberapa pertimbangan yang harus dilakukan dalam membuat \textit{user interface design} pada aplikasi mobile:
+
+\begin{enumerate}
+	\item Menentukan brand pokok dari produk tersebut, sehingga terdapat perbedaan dengan produk dari merk pesaing.
+	\item Fokus portofolio produk, menargetkan produk apakah untuk plafform android atau ios, karena jumlah pengguna platform tersebut tidaklah sama.
+	\item Mengoptimalkan kecepatan dan kemampuan dari aplikasi yang dibuat, karena pengguna tidak mau banyak menunggu.
+	\item Tentukan ukuran dan scaling untuk produk yang akan dibuat, sehingga ketika menampilkan sesuatu tidaklah terlalu besar atau kecil.
+	\item Keahlian untuk melakukan design antarmuka harus sangat tinggi, karena untuk tata letak, animasi, grafik dibutuhkan keahlian khusus. 
+\end{enumerate}
+
+\subsection{Kesalahan Design Aplikasi Mobile}
+\label{sec:kesalahanUI}
+Berikut merupakan beberapa kesalahan yang terdapat pada design aplikasi mobile:
+\begin{enumerate}
+	\item Terlalu banyak fitur, hindari menambahkan banyak fitur yang kurang bermanfaat, karena hal tersebut akan mengurangi nilai keindahan, cukup sederhana namun bisa bersaing di pasaran.
+	\item Kurang konsisten, tentukan suatu standar pada produk aplikasi mobile yang akan dibuat, sehingga aplikasi yang akan dibuat memiliki patokan dan menghindari produk menjadi kurang konsisten.
+	\item Lag atau bisa dibilang kurang cepat dalam membuka atau melakukan sesuatu, hal seperti ini membuat pengguna menjadi banyak menunggu sehingga hanya membuang-buang waktu.
+	\item Design yang berlebihan, pemilihan warna, gambar, animasi, ataupun tema menjadi masalah yang penting, apabila produk tersebut memiliki design yang berlebihan, maka pengguna akan merasa tidak nyaman dengan tampilan yang ditampilkan.
+	\item Bertele-tele, aplikasi yang dibuat tidak sempat ditest, sehingga saat penggunaan aplikasi tersebut, banyak menu atau pilihan yang tidak berguna, sehingga tujuan yang akan dicapai oleh aplikasi tersebut menjadi hilang atau lama untuk tercapai.
+\end{enumerate}
 
 \cite{pressman2019software}
 
-\subsection{QR Code}
-QR Code, kependekan dari Quick Response Code, merupakan gambar dua dimensi yang memiliki kemampuan untuk menyimpan data. QR Code biasa digunakan untuk menyimpan data berupa teks, baik itu numerik, alfanumerik, maupun kode biner. QR Code banyak digunakan untuk keperluan komersil biasanya berisi link url ke alamat tertentu atau sekedar teks berisi iklan, promosi, dan lain-lain. QR Code adalah image dua dimensi yang merepresentasikan
-suatu data, terutama data berbentuk teks. QR Code merupakan evolusi dari barcode yang awalnya satu dimensi menjadi dua dimensi. QR Code memiliki kemampuan menyimpan data yang
+\section{QR Code}
+QR Code, kependekan dari Quick Response Code, merupakan gambar dua dimensi yang memiliki kemampuan untuk menyimpan data. QR Code biasa digunakan untuk menyimpan data berupa teks, baik itu numerik, alfanumerik, maupun kode biner. QR Code banyak digunakan untuk keperluan komersil biasanya berisi link url ke alamat tertentu atau sekedar teks berisi iklan, promosi, dan lain-lain. QR Code adalah image dua dimensi yang merepresentasikan suatu data, terutama data berbentuk teks. QR Code merupakan evolusi dari barcode yang awalnya satu dimensi menjadi dua dimensi. QR Code memiliki kemampuan menyimpan data yang
 lebih jauh besar daripada barcode.
+
+Versi simbol QR Code berkisar dari versi 1 sampai dengan Versi 40. Setiap versi memiliki konfigurasi modul atau jumlah modul yang berbeda, modul mengacu pada titik hitam dan putih yang membentuk QR Code.
+Konfigurasi modul ini dapat dilihat pada jumlah modul yang terdapat dalam simbol, biasa dimulai dengan versi 1 (modul 21 × 21) hingga versi 40 (modul 177 × 177). Setiap nomor versi yang lebih tinggi terdiri dari 4 modul tambahan per sisi. \footnote{Versi Simbol QR Code \url{https://www.qrcode.com/en/about/version.html}}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=1]{Gambar/versiQR.png}
+	\caption{Contoh Versi QR Code} 
+	\label{fig:versiQR}
+\end{figure}
+
+Pada setiap versi simbol QR Code memiliki kapasitas data maksimum yang berbeda, tergantung dengan dengan jumlah data, jenis karakter, dan tingkat koreksi kesalahan. Oleh karena itu, seiring bertambahnya jumlah data, semakin banyak pula modul yang dibutuhkan untuk menyusun QR Code, sehingga menghasilkan simbol QR Code yang lebih besar.
+
+Titik untuk mengukur ukuran sebenarnya dari simbol QR Code tergantung pada ukuran milimeter modul (satu area persegi yang terdiri dari QR Code) yang akan dicetak. Semakin besar modulnya, semakin stabil dan mudah dibaca dengan pemindai Kode QR Code. Namun dikarenakan ukuran simbol QR Code semakin besar, area pencetakan yang lebih besar akan diperlukan. Oleh karena itu, perlu untuk menentukan ukuran modul dari setiap aplikasi setelah mempertimbangkan semua faktor yang relevan. Namun tetap disarankan agar simbol QR Code dicetak sebesar mungkin dalam area pencetakan yang tersedia.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=1]{Gambar/modulSize.png}
+	\caption{Contoh Modul QR Code} 
+	\label{fig:modulSize}
+\end{figure}
+
+\subsection{Masalah pada Mempindai QR Code}
+\label{sec:masalahQR}
+QR Code dapat dibaca dengan mudah apabila QR Code yang dibuat mengikuti standar QR Code dan harus dicetak dengan jelas. Oleh karena itu QR Code yang tidak mengikuti standar dan tidak jelas gambarnya, sudah dipastikan tidak dapat dibaca dengan jenis pemindai dan ponsel tertentu. Berikut contoh QR Code yang menyebabkan masalah dalam proses pemindaian QR Code:
+
+\begin{enumerate}
+	\item QR Code yang modulnya terdistorsi, yang dimaksud disini adalah ketika QR Code diperbesar atau diperkecil menggunakan suatu aplikasi, maka QR Code tidak bisa dibaca atau dipindai.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=1]{Gambar/qrDistro.png}
+		\caption{Contoh QR Code yang Terdistorsi} 
+		\label{fig:qrDistro}
+	\end{figure}
+	
+	\item QR Code yang terdapat huruf atau gambar yang mengelilingi QR Code tersebut, hal ini menyebabkan camera atau alat scan menjadi sulit fokus terhadap modul QR Code.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=1]{Gambar/qrGambar.png}
+		\caption{Contoh QR Code yang DIkelilingi oleh Gambar atau Huruf} 
+		\label{fig:qrGambar}
+	\end{figure}
+	
+	\item QR Code yang tertimpa atau saling tumpang tindih oleh gambar atau huruf, akan menyembabkan kontras area antara warna gelap dan terang sulit untuk dibedakan.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=1]{Gambar/qrTimpa.png}
+		\caption{Contoh QR Code yang Tumpang Tindih oleh Gambar atau Huruf} 
+		\label{fig:qrTimpa}
+	\end{figure}
+\end{enumerate}
+
+
