@@ -90,6 +90,7 @@
 \newcommand{\kaprodiFIS}{}
 \newcommand{\kaprodiTIF}{}
 
+
 \include{dosen}%dosen.tex
 
 %perubahan data prodi
@@ -469,8 +470,12 @@
 \pagestyle{fancy}%header 
 
 %include bab 
-\foreach \i in \vbab { \edef\vfile{Bab/bab\i} \IfFileExists{\vfile}{\include{\vfile}}} 
-
+%\foreach \i in \vbab { \edef\vfile{Bab/bab\i} \IfFileExists{\vfile}{\include{\vfile}}} 
+\include{Bab/bab1}
+\include{Bab/bab2}
+\include{Bab/bab3}
+\include{Bab/bab4}
+\include{Bab/bab5}
 %update nama daftar referensi
 \renewcommand{\bibname}{Daftar Referensi}
 
@@ -486,4 +491,4 @@
 %include lampiran
 \foreach \i in \vlamp { \edef\vfile{Lampiran/lamp\i} \IfFileExists{\vfile}{\include{\vfile}}} 
 
-\end{document}
+	\end{document}
