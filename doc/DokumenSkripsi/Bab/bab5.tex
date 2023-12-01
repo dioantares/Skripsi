@@ -8,6 +8,8 @@ telah dibangun.
 \label{sec:implementasi} 
 
 \subsection{Lingkungan Implementasi}
+\label{sec:lingkunganImplementasi}
+
 Implementasi perangkat lunak ini dilakukan pada komputer penulis dengan spesifikasi berikut:
 
 \begin{enumerate}
@@ -17,6 +19,8 @@ Implementasi perangkat lunak ini dilakukan pada komputer penulis dengan spesifik
 \end{enumerate}
 
 \subsection{Hasil Implementasi}
+\label{sec:hasilImplementasi}
+
 Terdapat dua hasil implementasi, yaitu :
 
 \begin{enumerate}
@@ -28,6 +32,7 @@ Terdapat dua hasil implementasi, yaitu :
 \label{sec:tampilanAntarMuka}
 
 \subsection{Tampilan Antarmuka Formulir Data Umat}
+\label{sec:tampilanAntarmukaFormulir}
 
 \begin{figure}[H]
 	\centering
@@ -36,7 +41,42 @@ Terdapat dua hasil implementasi, yaitu :
 	\label{fig:formDataUmatFull}
 \end{figure}
 
+Umat yang akan mendaftar dapat mengakses website tersebut melalui link \url{https://dioantares.github.io/}. Gambar \ref{fig:formDataUmatFull} merupakan tampilan antarmuka pada halaman Formulir Data Umat yang sudah diimplementasikan. File \textit{style} dan \textit{script} untuk halaman ini terletak di file terpisah.  Apabila umat sudah selesai menyelesaikan pengisian formulir data umat, maka pada bagian bawah halaman website akan terdapat tombol submit, seperti pada gambar \ref{fig:fiturSubmit}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.7]{Gambar/fiturSubmit.png}
+	\caption{Fitur submit pada website formulir data umat} 
+	\label{fig:fiturSubmit}
+\end{figure}
+
+Setelah data umat selesai terisi, dan umat menekan tombol submit, maka proses selanjutnya adalah website akan merubah data yang terisi pada field input formulir menjadi sebuah qr code, maka halaman website akan menampilkan qr code yang sudah berisikan data yang telah ditulis pada field input formulir, seperti pada gambar \ref{fig:contohQRCodeSubmit}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.7]{Gambar/contohQRCodeSubmit.png}
+	\caption{Contoh QR Code yang berhasil ditampilkan} 
+	\label{fig:contohQRCodeSubmit}
+\end{figure}
+
+Pada gambar \ref{fig:contohQRCodeSubmit}, apabila qr code sudah berhasil ditampilkan, maka umat hanya perlu menunjukkannya kepada admin, sehingga admin dapat mempindai qr code tersebut. Pengisian formulir data umat baru dilakukan secara online sehingga dapat mengurangi waktu penulisan data umat baru dan mengurangi kemungkinanan kesalahan dalam penulisan data umat baru, selain itu dengan adanya halam website ini maka umat dapat menggunakan fitur save dan load, fitur ini berfungsi apabila umat baru akan melanjutkan pengisian formulir dilain waktu, atau mencegah terjadinya \textit{crash} pada halaman website, sehingga umat tidak perlu menulis ulang dari awal apabila terjadi hal yang tidak diinginkan. Pemberitahuan apabila save berhasil maka akan menampilkan notifikasi "Data Berhasil di Save", seperti pada gambar \ref{fig:saveBerhasil} dan apabila load berhasil maka akan menampilkan notifikasi "Data Berhasil di Load", seperti pada gambar \ref{fig:loadBerhasil}. Tombol save dan load berada pada bagian atas halaman website, contohnya dapat dilihat pada gambar \ref{fig:formDataUmatFull}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.7]{Gambar/saveBerhasil.png}
+	\caption{Notifikasi data berhasil di save} 
+	\label{fig:saveBerhasil}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.7]{Gambar/loadBerhasil.png}
+	\caption{Notifikasi data berhasil di load} 
+	\label{fig:loadBerhasil}
+\end{figure}
+
 \subsection{Tampilan Antarmuka Odoo}
+\label{sec:tampilanAntarmukaOdoo}
 
 \begin{figure}[H]
 	\centering
@@ -44,6 +84,8 @@ Terdapat dua hasil implementasi, yaitu :
 	\caption{Rancangan antarmuka halaman Odoo} 
 	\label{fig:odooBuatBaru}
 \end{figure}
+
+Gambar \ref{fig:odooBuatBaru} adalah halaman custom module Odoo yang sudah berhasil dibuat, untuk mengakses halaman tersebut maka penulis harus membuka halaman melalui link \url{http://localhost:8069/web}, halaman tersebut hanya dapat diakses melalui file local yang sudah berhasil menginstall custom module Odoo pada perangkat yang digunakan.
 
 \begin{figure}[H]
 	\centering
@@ -60,12 +102,13 @@ Gambar \ref{fig:formDataUmatFull} merupakan tampilan antarmuka pada halaman Form
 Pengujian fungsional dilakukan secara lokal pada perangkat penulis. Berikut ini pengujian yang dilakukan terhadap fitur-fitur yang sudah diimplementasi:
 
 \subsection{Pengujian Fungsional Formulir Data Umat Baru}
+\label{sec:pengujianFungsionalFormulir}
 
 \begin{table}[H]
 	\centering
 	\caption{Tabel Pengujian Fungsional Formulir Data Umat Baru}
-	\begin{tabular}{|p{0.5cm}| p{5cm}| p{5.5cm}| p{2.5cm}|} \hline
-		No.	&	Aksi Pengguna	&	Reaksi yang diharapkan	&	Reaksi \\ \hline
+	\begin{tabular}{|p{0.5cm}| p{5cm}| p{6cm}| p{2.5cm}|} \hline
+		No	&	Aksi Pengguna	&	Reaksi yang diharapkan	&	Reaksi \\ \hline
 		1 	&  Membuka halaman utama & Halaman formulir ditampilkan &	sesuai	\\ \hline
 		2 	&  Membuka halaman pada ponsel & Responsif (terbaca mudah di ponsel) &	sesuai	\\ \hline
 		3 	&  Mengetik data pada form yang tersedia & Menampilkan keyboard yang tepat untuk input tertentu (contoh: nomor telepon menggunakan keypad) &	sesuai	\\ \hline
@@ -77,18 +120,24 @@ Pengujian fungsional dilakukan secara lokal pada perangkat penulis. Berikut ini 
 \end{table}
 
 \subsection{Pengujian Fungsional Odoo}
+\label{sec:pengujianFungsionalOdoo}
 
 \begin{table}[H]
 	\centering
 	\caption{Tabel Pengujian Fungsional Odoo}
-	\begin{tabular}{|p{0.5cm}| p{5cm}| p{5.5cm}| p{2.5cm}|} \hline
-		No.	&	Aksi Pengguna	&	Reaksi yang diharapkan	&	Reaksi \\ \hline
+	\begin{tabular}{|p{0.5cm}| p{5cm}| p{6cm}| p{2.5cm}|} \hline
+		No	&	Aksi Pengguna	&	Reaksi yang diharapkan	&	Reaksi \\ \hline
 		1 	&  Membuka halaman utama & Halaman utama ditampilkan &	sesuai	\\ \hline
 		2 	&  Menekan tombol New & Menampilkan halaman dengan field data umat baru &	sesuai	\\ \hline
 		3 	&  Menekan tombol Scan & Mampu memindai kode QR  &	belum sesuai	\\ \hline
 	\end{tabular}
 	\label{table:fungsionalOdoo}
 \end{table}
+
+\section{Pengujian Eksperimental}
+\label{sec:pengujianEksperimental}
+
+
 
 
 
