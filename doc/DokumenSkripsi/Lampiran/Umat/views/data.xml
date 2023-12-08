@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--    <template id="assets_common" name="assets_common" inherit_id="web.assets_common">-->
+    <!--        <xpath expr="." position="inside">-->
+    <!--            <script type="text/javascript" src="static/src/js/qr-scanner.umd.min.js"/>-->
+    <!--            <script type="text/javascript" src="static/src/js/qr-scanner.legacy.min.js"/>-->
+    <!--        </xpath>-->
+    <!--    </template>-->
+
+    <template id="umat_page" name="Data Umat">
+
+        <t t-call="website.layout">
+            <body>
+                <video id="video"></video>
+                <script src="lib/qr-scanner.umd.min.js"></script>
+                <script>
+                    let videoElem = document.getElementById("video");
+                    const qrScanner = new QrScanner(
+                    videoElem,
+                    result => console.log('decoded qr code:', result),
+                    { }
+                    );
+                    qrScanner.start();
+                </script>
+            </body>
+        </t>
+
+    </template>
+
+</odoo>

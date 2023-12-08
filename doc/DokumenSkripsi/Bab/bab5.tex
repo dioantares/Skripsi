@@ -36,8 +36,8 @@ Terdapat dua hasil implementasi, yaitu :
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.41]{Gambar/halamanFormulir.png}
-	\caption{Rancangan antarmuka halaman Formulir Data Umat} 
+	\includegraphics[scale=0.4]{Gambar/halamanFormulir.png}
+	\caption{Hasil implementasi antarmuka halaman Formulir Data Umat} 
 	\label{fig:formDataUmatFull}
 \end{figure}
 
@@ -45,8 +45,8 @@ Umat yang akan mendaftar dapat mengakses website tersebut melalui link \url{http
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.7]{Gambar/fiturSubmit.png}
-	\caption{Fitur submit pada website formulir data umat} 
+	\includegraphics[scale=0.4]{Gambar/fiturSubmit.png}
+	\caption{Hasil implementasi fitur submit pada website formulir data umat} 
 	\label{fig:fiturSubmit}
 \end{figure}
 
@@ -54,8 +54,8 @@ Setelah data umat selesai terisi, dan umat menekan tombol submit, maka proses se
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.7]{Gambar/contohQRCodeSubmit.png}
-	\caption{Contoh QR Code yang berhasil ditampilkan} 
+	\includegraphics[scale=0.4]{Gambar/contohQRCodeSubmit.png}
+	\caption{Hasil implementasi contoh QR Code yang berhasil ditampilkan} 
 	\label{fig:contohQRCodeSubmit}
 \end{figure}
 
@@ -63,15 +63,15 @@ Pada gambar \ref{fig:contohQRCodeSubmit}, apabila qr code sudah berhasil ditampi
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.7]{Gambar/saveBerhasil.png}
-	\caption{Notifikasi data berhasil di save} 
+	\includegraphics[scale=0.4]{Gambar/saveBerhasil.png}
+	\caption{Hasil implementasi fitur notifikasi data berhasil di save} 
 	\label{fig:saveBerhasil}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.7]{Gambar/loadBerhasil.png}
-	\caption{Notifikasi data berhasil di load} 
+	\includegraphics[scale=0.4]{Gambar/loadBerhasil.png}
+	\caption{Hasil implementasi fitur notifikasi data berhasil di load} 
 	\label{fig:loadBerhasil}
 \end{figure}
 
@@ -81,7 +81,7 @@ Pada gambar \ref{fig:contohQRCodeSubmit}, apabila qr code sudah berhasil ditampi
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.4]{Gambar/odooBuatBaru.png}
-	\caption{Rancangan antarmuka halaman Odoo} 
+	\caption{Hasil implementasi antarmuka halaman Odoo} 
 	\label{fig:odooBuatBaru}
 \end{figure}
 
@@ -90,7 +90,7 @@ Gambar \ref{fig:odooBuatBaru} adalah halaman custom module Odoo yang sudah berha
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.4]{Gambar/odooBuatBaru2.png}
-	\caption{Rancangan antarmuka halaman Odoo} 
+	\caption{Hasil implementasi antarmuka halaman Odoo untuk submit} 
 	\label{fig:odooBuatBaru2}
 \end{figure}
 
@@ -134,10 +134,75 @@ Pengujian fungsional dilakukan secara lokal pada perangkat penulis. Berikut ini 
 	\label{table:fungsionalOdoo}
 \end{table}
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.4]{Gambar/controllerOdoo.png}
+	\caption{Hasil pembuatan halaman html pada Odoo} 
+	\label{fig:controllerOdoo}
+\end{figure}
+
+Telah dilakukan pengujian terhadap custom halaman Odoo menggunakan Controller, cara ini dilakukan dengan cara membuat halaman baru, dengan url yang sudah kita tentukan sendiri. Contoh pembuatan halaman html custom pada odoo terdapat pada gambar \ref{fig:controllerOdoo}.
+
+
 \section{Pengujian Eksperimental}
 \label{sec:pengujianEksperimental}
 
+Pengujian eksperimental dilakukan oleh \textit{handphone} penulis dengan spesifikasi sebagai berikut:
 
+\begin{enumerate}
+	\item \textit{Handphone}: Redmi Note 12
+	\item \textit{Random Access Memory} (RAM): 8 GB
+	\item Android: 13
+\end{enumerate}
+
+\subsection{Pengujian Best Case}
+\label{sec:pengujianBest}
+
+Pada pengujian ini dilakukan menggunakan data asli penulis, hanya beberapa pengisian field dilakukan secara palsu atau tidak sesuai data penulis.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.4]{Gambar/formFullQRCode.png}
+	\caption{Hasil qr code dari data formulir} 
+	\label{fig:formFullQRCode}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.4]{Gambar/hasilScan.jpg}
+	\caption{Hasil scan QR Code melalui aplikasi pada handphone} 
+	\label{fig:hasilScan}
+\end{figure}
+
+Hasil pengujian ini mendapatkan hasil yang bagus, terbukti pada gambar \ref{fig:hasilScan}, walaupun qr code terlihat sangat kecil dan sulit untuk di scan, namun data yang berada didalamnya masih dapat dipindai oleh qr code scanner.
+
+\subsection{Pengujian Worst Case}
+\label{sec:pengujianWorst}
+
+Pada pengujian kali ini, akan dimasukan data yang berisikan tulisan yang panjang, pada pengujian ini bertujuan untuk melihat apakah Qr Code yang dihasilkan dapat dipindai atau tidak, contoh input data yang dimasukkan dapat dilihat pada gambar \ref{fig:inputWorstCase}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.4]{Gambar/inputWorstCase.png}
+	\caption{Input data worstcase pada data formulir} 
+	\label{fig:inputWorstCase}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.4]{Gambar/qrCodeWorstCase.png}
+	\caption{Hasil qr code dari data formulir} 
+	\label{fig:qrCodeWorstCase}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.4]{Gambar/hasilScanWorst.jpg}
+	\caption{Hasil scan QR Code melalui aplikasi pada handphone} 
+	\label{fig:hasilScanWorst}
+\end{figure}
+
+Apabila data yang dimasukkan seperti pada gambar \ref{fig:inputWorstCase}, walaupun QR Code yang dihasilkan sangat kecil, dan hampir tidak bisa dipindai, namun setelah dilakukan pengujian, data tersebut masih dapat dipindai, hasil dari QR Code tersebut dapat dilihat pada gambar \ref{fig:hasilScanWorst}, namun QR Code memerlukan waktu yang lebih lama untuk dipindai dikarenakan QR Code berisikan banyak data.
 
 
 

@@ -1,0 +1,820 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="style.css">
+
+    <!----===== Iconscout CSS ===== -->
+    <title>Formulir Sensus Umat SIMU</title>
+
+    <script src="library/qrcodejs-master/qrcode.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Formulir Data Umat</h1>
+
+        <form name="formUmat" action="#" onsubmit="generateQRCode(event); return false;">
+
+            <input class="save" type="button" value="Save" onclick="saveDataUmat()">
+            <input class="load" type="button" value="Load" onclick="loadDataUmat()">
+            
+            <div id="form" class="formDataUmat">
+                <div class="dataDiri">
+                    <h2>Data Diri &amp; Identitas</h2>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Nama</label>
+                            <input type="text" id="name" name="name" placeholder="Nama" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>NIK</label>
+                            <input type="number" id="nik" name="nik" placeholder="NIK">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Jenis Kelamin</label>
+                            <select id="gender" value="Laki-laki">
+                                <option disabled selected value="">Pilih Jenis Kelamin</option>
+                                <option value="pria">Laki-laki</option>
+                                <option value="perempuan">Perempuan</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Tanggal Kelahiran</label>
+                            <input type="date" id="birthdate" placeholder="Tanggal lahir">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Kota Lahir</label>
+                            <input type="text" id="birthplace" placeholder="Kota Lahir">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Agama</label>
+                            <select id="religion">
+                                <option disabled selected value="">Pilih Agama</option>
+                                <option value="katolik">Katolik</option>
+                                <option value="kristen">Kristen</option>
+                                <option value="buddha">Buddha</option>
+                                <option value="islam">Islam</option>
+                                <option value="hindhu">Hindhu</option>
+                                <option value="konghucu">Konghucu</option>
+                                <option value="lainnya">Lainnya</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Keuskupan</label>
+                            <input type="text" id="diocese" placeholder="Keuskupan">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Paroki</label>
+                            <input type="text" id="parish" placeholder="Paroki">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Lingkungan</label>
+                            <input type="text" id="community" placeholder="Lingkungan">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Golongan Darah</label>
+                            <select id="bloodtype">
+                                <option disabled selected value="">Pilih Golongan Darah</option>
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                                <option value="AB">AB</option>
+                                <option value="O">O</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Ras / Suku</label>
+                            <input type="text" id="ethnicity" placeholder="Ras / Suku">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Kewarganegaraan</label>
+                            <select id="nationality">
+                                <option disabled selected value="">Pilih Kewarganegaraan</option>
+                                <option value="indonesiaa">Indonesia</option>
+                                <option value="asing">Asing</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Bahasa Utama</label>
+                            <select id="mainLanguage">
+                                <option disabled selected value="">Pilih Bahasa Utama</option>
+                                <option value="bahasa indonesia">Bahasa Indonesia</option>
+                                <option value="bahasa inggris">Bahasa Inggris</option>
+                                <option value="bahasa mandarin">Bahasa Mandarin</option>
+                                <option value="bahasa sunda">Bahasa Sunda</option>
+                                <option value="bahasa jawa">Bahasa Jawa</option>
+                                <option value="bahasa batak">Bahasa Batak</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Tipe Protestan</label>
+                            <select id="protestantType">
+                                <option disabled selected value="">Pilih Tipe Protestan</option>
+                                <option value="baptis">Baptis</option>
+                                <option value="angklikan">Angklikan</option>
+                                <option value="protestan">Protestan</option>
+                                <option value="lutheran">Lutheran</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Agama Sebelumnya</label>
+                            <select id="previousReligion">
+                                <option disabled selected value="">Pilih Agama Sebelumnya</option>
+                                <option value="katolik">Katolik</option>
+                                <option value="kristen">Kristen</option>
+                                <option value="buddha">Buddha</option>
+                                <option value="islam">Islam</option>
+                                <option value="hindhu">Hindhu</option>
+                                <option value="konghucu">Konghucu</option>
+                                <option value="lainnya">Lainnya</option>
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="kontak">
+                    <h2>Kontak</h2>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Alamat</label>
+                            <input type="text" id="alamat" placeholder="Alamat">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Kabupaten</label>
+                            <input type="text" id="kabupaten" placeholder="Kabupaten">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Kota</label>
+                            <input type="text" id="kota" placeholder="Kota">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Kecamatan</label>
+                            <input type="text" id="kecamatan" placeholder="Kecamatan">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Kelurahan</label>
+                            <input type="text" id="kelurahan" placeholder="Kelurahan">
+                        </div>
+
+                        <div class="input-field">
+                            <label>RT</label>
+                            <input type="number" id="rt" placeholder="RT">
+                        </div>
+
+                        <div class="input-field">
+                            <label>RW</label>
+                            <input type="number" id="rw" placeholder="RW">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Bulan Tinggal</label>
+                            <input type="number" id="bulanTinggal" placeholder="Bulan Tinggal" min="1" max="12">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Tahun Tinggal</label>
+                            <input type="number" id="tahunTinggal" placeholder="Tahun Tinggal">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Nomer Telepon</label>
+                            <input type="tel" id="noTel" placeholder="Nomer Telepon">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Nomer Handphone</label>
+                            <input type="tel" id="noHP" placeholder="Nomer Handphone">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Email</label>
+                            <input type="email" id="email" placeholder="Email">
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="dataPribadi">
+                    <h2>Data Pribadi</h2>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Hobi</label>
+                            <input type="text" id="hobi" placeholder="Hobi">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Anggota Asuransi</label>
+                            <select id="anggotaAsuransi">
+                                <option disabled selected value="">Anggota Asuransi</option>
+                                <option>Ya</option>
+                                <option>Tidak</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Status Kesehatan</label>
+                            <select id="statusKesehatan">
+                                <option disabled selected value="">Pilih Status Kesehatan</option>
+                                <option>Normal</option>
+                                <option>Gangguan Fisik</option>
+                                <option>Gangguan Mental</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Deskripsi Kesehatan</label>
+                            <input type="text" id="desKesehatan" placeholder="Deskripsi Kesehatan">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Cacat Tubuh</label>
+                            <input type="text" id="cacatTubuh" placeholder="Cacat Tubuh">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Deskripsi Cacat Tubuh</label>
+                            <input type="text" id="desCacatTubuh" placeholder="Deskripsi Cacat Tubuh">
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="keluarga">
+                    <h2>Keluarga</h2>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Status Perkawinan</label>
+                            <select id="statusPerkawinan">
+                                <option disabled selected value="">Pilih Status Perkawinan</option>
+                                <option>Kawin</option>
+                                <option>Belum Kawin</option>
+                                <option>Janda/Duda Mati</option>
+                                <option>Pisah</option>
+                                <option>Cerai Sipil</option>
+                                <option>Tidak Kawin</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Status Hub. Keluarga</label>
+                            <select id="statusHubKeluarga">
+                                <option disabled selected value="">Pilih Status Hub. Keluarga</option>
+                                <option>Suami</option>
+                                <option>Istri</option>
+                                <option>Anak Kandung</option>
+                                <option>Anak Tiri/Adopsi</option>
+                                <option>Anak Kost</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Nama Ibu Kandung</label>
+                            <input type="text" id="namaIbuKandung" placeholder="Nama Ibu Kandung">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Nama Ayah Kandung</label>
+                            <input type="text" id="namaAyahKandung" placeholder="Nama Ayah Kandung">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Anak Ke</label>
+                            <input type="number" id="anakKe" placeholder="Anak ke">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Nama Anggota Keluarga</label>
+                            <input type="text" id="anakKe1" placeholder="Nama Anggota Keluarga 1">
+                            <input type="text" id="anakKe2" placeholder="Nama Anggota Keluarga 2">
+                            <input type="text" id="anakKe3" placeholder="Nama Anggota Keluarga 3">
+                            <input type="text" id="anakKe4" placeholder="Nama Anggota Keluarga 4">
+                            <input type="text" id="anakKe5" placeholder="Nama Anggota Keluarga 5">
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="sakramen">
+                    <h2>Sakramen</h2>
+
+                    <h3>Baptis</h3>
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Nomor Surat Baptis</label>
+                            <input type="number" id="noSuratBaptis" placeholder="Nomor Surat Baptis">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Nama Baptis</label>
+                            <input type="text" id="namaBaptis" placeholder="Nama Baptis">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Jenis Baptis</label>
+                            <select id="jenisBaptis">
+                                <option disabled selected value="">Jenis Baptis</option>
+                                <option>Baptis Bayi</option>
+                                <option>Baptis Dewasa</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Agama Sebelumnya</label>
+                            <select id="agamaSebelumnya">
+                                <option disabled selected value="">Pilih Agama Sebelumnya</option>
+                                <option>Katolik</option>
+                                <option>Kristen</option>
+                                <option>Buddha</option>
+                                <option>Islam</option>
+                                <option>Hindhu</option>
+                                <option>Konghucu</option>
+                                <option>Lainnya</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Gereja Baptis</label>
+                            <input type="text" id="gerejaBaptis" placeholder="Gereja Baptis">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Tanggal Baptis</label>
+                            <input type="date" id="tanggalBaptis" placeholder="Tanggal Baptis">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Paroki Baptis</label>
+                            <input type="text" id="parokiBaptis" placeholder="Paroki Baptis">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Kota Baptis</label>
+                            <input type="text" id="kotaBaptis" placeholder="Kota Baptis">
+                        </div>
+
+                        <h3>Komuni Pertama</h3>
+                        <div class="input-field">
+                            <label>Nomor Surat Komuni</label>
+                            <input type="number" id="noSuratKomuni" placeholder="Nomor Surat Komuni">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Tanggal Komuni</label>
+                            <input type="date" id="tanggalKomuni" placeholder="Tanggal Komuni">
+                        </div>
+
+                        <div class="input-field">
+                            <label>di Gereja</label>
+                            <input type="text" id="tempatKomuni" placeholder="Gereja">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Nama Paroki</label>
+                            <input type="text" id="namaParoki" placeholder="Nama Paroki">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Kota</label>
+                            <input type="text" id="kotaParoki" placeholder="Kota">
+                        </div>
+
+                        <h3>Penguatan</h3>
+                        <div class="input-field">
+                            <label>Nomor Surat Penguatan</label>
+                            <input type="number" id="noSuratPenguatan" placeholder="Nomor Surat Penguatan">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Tanggal Penguatan</label>
+                            <input type="date" id="tanggalPenguatan" placeholder="Tanggal Penguatan">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Nama Penguatan</label>
+                            <input type="text" id="namaPenguatan" placeholder="Nama Penguatan">
+                        </div>
+
+                        <div class="input-field">
+                            <label>di Gereja</label>
+                            <input type="text" id="gerejaPenguatan" placeholder="Gereja">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Nama Paroki</label>
+                            <input type="text" id="namaParokiPenguatan" placeholder="Nama Paroki">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Kota</label>
+                            <input type="text" id="kotaPenguatan" placeholder="Kota">
+                        </div>
+
+                        <h3>Perkawinan</h3>
+                        <div class="input-field">
+                            <label>Nomor Surat Perkawinan</label>
+                            <input type="number" id="noSuratPerkawinan" placeholder="Nomor Surat Perkawinan">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Tanggal Perkawinan</label>
+                            <input type="date" id="tanggalPerkawinan" placeholder="Tanggal Perkawinan">
+                        </div>
+
+                        <div class="input-field">
+                            <label>di Gereja</label>
+                            <input type="text" id="gerejaPerkawinan" placeholder="Gereja">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Nama Paroki</label>
+                            <input type="text" id="namaParokiPerkawinan" placeholder="Nama Paroki">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Kota</label>
+                            <input type="text" id="kotaPerkawinan" placeholder="Kota">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Suami</label>
+                            <input type="text" id="namaSuami" placeholder="Suami">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Istri</label>
+                            <input type="text" id="namaIstri" placeholder="Istri">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Kategori Perkawinan</label>
+                            <select id="kategoriPerkawinan">
+                                <option disabled selected value="">Pilih Kategori Perkawinan</option>
+                                <option>Katolik</option>
+                                <option>Katolik - Kristen</option>
+                                <option>Katolik - Islam</option>
+                                <option>Katolik - Buddha</option>
+                                <option>Katolik - Hindhu</option>
+                                <option>Katolik - Konghucu</option>
+                                <option>Katolik - Lainnya</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pekerjaanPendidikan">
+                    <h2>Pekerjaan &amp; Pendidikan</h2>
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Pekerjaan</label>
+                            <input type="text" id="pekerjaan" placeholder="Pekerjaan">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Alamat Pekerjaan</label>
+                            <input type="text" id="alamatPekerjaan" placeholder="Alamat Pekerjaan">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Profesi</label>
+                            <input type="text" id="profesi" placeholder="Profesi">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Profesi Lain</label>
+                            <input type="text" id="profesiLain" placeholder="Profesi Lain">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Pendapatan perbulan</label>
+                            <select id="pendapatanPerbulan">
+                                <option disabled selected value="">Pilih Pendapatan perbulan</option>
+                                <option>
+                                    < Rp 500.000,-</option>
+                                <option>
+                                    < Rp 1.000.000,-</option>
+                                <option>Rp 1.000.000,- s/d Rp 2.000.000,-</option>
+                                <option>Rp 2.000.000,- s/d Rp 3.000.000,-</option>
+                                <option>Rp 3.000.000,- s/d Rp 4.000.000,-</option>
+                                <option>Rp 4.000.000,- s/d Rp 5.000.000,-</option>
+                                <option>Rp 5.000.000,- s/d Rp 6.000.000,-</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Keahlian/Keterampilan</label>
+                            <input type="text" id="keahlian" placeholder="Keahlian / Keterampilan">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Kursus Gereja / Pastoral</label>
+                            <select id="kursusGereja">
+                                <option disabled selected value="">Pilih Kursus Gereja / Pastoral</option>
+                                <option>Sedang</option>
+                                <option>Pernah</option>
+                                <option>Tidak Pernah</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Jenis Kursus</label>
+                            <input type="text" id="jenisKursus" placeholder="Jenis Kursus">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Pendidikan Saat Ini</label>
+                            <select id="pendidikanSekarang">
+                                <option disabled selected value="">Pilih Pendidikan Saat Ini</option>
+                                <option>TK</option>
+                                <option>SD</option>
+                                <option>SMP</option>
+                                <option>SMA</option>
+                                <option>SMK</option>
+                                <option>S1</option>
+                                <option>S2</option>
+                                <option>S3</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Pendidikan Terakhir</label>
+                            <select id="pendidikanTerakhir">
+                                <option disabled selected value="">Pilih Pendidikan Terakhir</option>
+                                <option>SD</option>
+                                <option>SMP</option>
+                                <option>SMA</option>
+                                <option>SMK</option>
+                                <option>S1</option>
+                                <option>S2</option>
+                                <option>S3</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Jurusan / Prodi</label>
+                            <input type="text" id="jurusan" placeholder="Jurusan / Prodi">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Nama Sekolah / Universitas</label>
+                            <input type="text" id="namaSekolah" placeholder="Nama Sekolah / Universitas">
+                        </div>
+
+                        <div class="input-field">
+                            <label>di Kota</label>
+                            <input type="text" id="kotaSekolah" placeholder="di Kota">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Alamat</label>
+                            <input type="text" id="alamatSekolah" placeholder="Alamat">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Kategori Sekolah / Universitas</label>
+                            <select id="kategoriSekolah">
+                                <option disabled selected value="">Pilih Kategori Sekolah / Universitas</option>
+                                <option>Katolik</option>
+                                <option>Kristen</option>
+                                <option>Negeri</option>
+                                <option>Swasta</option>
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="aktivitas">
+                    <h2>Aktivitas</h2>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Jenis Rohaniwan</label>
+                            <select id="jenisRohaniwan">
+                                <option disabled selected value="">Pilih Jenis Rohaniwan</option>
+                                <option>Awam</option>
+                                <option>Pastor</option>
+                                <option>Suster</option>
+                                <option>Bruder</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Misa Harian</label>
+                            <select id="misaHarian">
+                                <option disabled selected value="">Pilih Misa Harian</option>
+                                <option>Selalu</option>
+                                <option>Sering</option>
+                                <option>Jarang / Kadang-kadang</option>
+                                <option>Tidak Pernah</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Misa Mingguan</label>
+                            <select id="misaMingguan">
+                                <option disabled selected value="">Pilih Misa Mingguan</option>
+                                <option>Selalu</option>
+                                <option>Sering</option>
+                                <option>Jarang / Kadang-kadang</option>
+                                <option>Tidak Pernah</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Misa Hari Raya</label>
+                            <select id="misaHariRaya">
+                                <option disabled selected value="">Pilih Misa Hari Raya</option>
+                                <option>Selalu</option>
+                                <option>Sering</option>
+                                <option>Jarang / Kadang-kadang</option>
+                                <option>Tidak Pernah</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Aktif di Masyarakat</label>
+                            <select id="aktifMasyarakat">
+                                <option disabled selected value="">Pilih Aktif di Masyarakat</option>
+                                <option>Ya</option>
+                                <option>Tidak</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Posisi di Masyarakat</label>
+                            <input type="text" id="posisiMasyarakat" placeholder="Posisi di Masyarakat">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Aktif di Keuskupan</label>
+                            <select id="aktifKeuskupan">
+                                <option disabled selected value="">Pilih Aktif di Keuskupan</option>
+                                <option>Sedang</option>
+                                <option>Pernah</option>
+                                <option>Tidak Pernah</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Aktif di Paroki / Stasi</label>
+                            <select id="aktifParoki">
+                                <option disabled selected value="">Pilih Aktif di Paroki / Stasi</option>
+                                <option>Sedang</option>
+                                <option>Pernah</option>
+                                <option>Tidak Pernah</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Aktif di Lingkungan</label>
+                            <select id="aktifLingkungan">
+                                <option disabled selected value="">Pilih Aktif di Lingkungan</option>
+                                <option>Sedang</option>
+                                <option>Pernah</option>
+                                <option>Tidak Pernah</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Aktif di Wilayah</label>
+                            <select id="aktifWilayah">
+                                <option disabled selected value="">Pilih Aktif di Wilayah</option>
+                                <option>Sedang</option>
+                                <option>Pernah</option>
+                                <option>Tidak Pernah</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Petugas Liturgi</label>
+                            <select id="petugasLiturgi">
+                                <option disabled selected value="">Pilih Petugas Liturgi</option>
+                                <option>Sedang</option>
+                                <option>Pernah</option>
+                                <option>Tidak Pernah</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Aktif di Kategorial</label>
+                            <select id="aktifKategorial">
+                                <option disabled selected value="">Pilih Aktif di Kategorial</option>
+                                <option>Ya</option>
+                                <option>Tidak</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Nama Kategorial</label>
+                            <input type="text" id="namaKategorial" placeholder="Nama Kategorial">
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="apk">
+                    <h2>APK</h2>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Menjadi Anggota APK</label>
+                            <select id="anggotaAPK">
+                                <option disabled selected value="">Pilih Menjadi Anggota APK</option>
+                                <option>Ikut</option>
+                                <option>Tidak Ikut</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Nomor APK</label>
+                            <input type="number" id="noAPK" placeholder="Nomor APK">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Tanggal Mulai APK</label>
+                            <input type="date" id="tanggalMutasiAPK" placeholder="Tanggal Mulai APK">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Status</label>
+                            <select id="statusAPK">
+                                <option disabled selected value="">Pilih Status</option>
+                                <option>Hidup</option>
+                                <option>Mati</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Tanggal Kematian</label>
+                            <input type="date" id="tanggalKematian" placeholder="Tanggal Kematian">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Pastor Pengurus Kematian</label>
+                            <input type="text" id="pastorPengurusKematian" placeholder="Pastor Pengurus Kematian">
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="buttons">
+                    <button class="submit" ;>
+                        <span class="btnText">Submit</span>
+                        <i class="uil uil-navigator"></i>
+                    </button>
+                </div>
+
+                <!-- Buat Canvas QRCode di halaman HTML -->
+                <div style="display: flexbox; flex-direction: row;">
+                    <div id="qrcode" style="display: block; margin-top: 25px"></div>
+                    <div id="qrcode2" style="display: block; margin-top: 25px"></div>
+                    <div id="qrcode3" style="display: block; margin-top: 25px"></div>
+                    <div id="qrcode4" style="display: block; margin-top: 25px"></div>
+                    <div id="qrcode5" style="display: block; margin-top: 25px"></div>
+                    <div id="qrcode51" style="display: block; margin-top: 25px"></div>
+                    <div id="qrcode6" style="display: block; margin-top: 25px"></div>
+                    <div id="qrcode7" style="display: block; margin-top: 25px"></div>
+                    <div id="qrcode8" style="display: block; margin-top: 25px"></div>
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
