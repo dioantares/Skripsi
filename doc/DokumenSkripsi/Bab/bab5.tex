@@ -25,7 +25,7 @@ Terdapat dua hasil implementasi, yaitu :
 
 \begin{enumerate}
 	\item Sebuah halaman formulir data umat baru yang memiliki fitur responsif (terbaca mudah di ponsel), berisikan formulir SIMU (Sistem Informasi Manajemen Umat), data dapat tersimpan pada lokal, membangkitkan kode QR  yang nantinya dapat dibaca oleh Odoo.
-	\item Sistem Odoo yang berisi data yang field-field nya menyerupai data umat SIMU (Sistem Informasi Manajemen Umat) dan mampu memindai kode QR yang dihasilkan dari halaman formulir data umat baru. 
+	\item Sistem Odoo yang berisi data yang field-field nya menyerupai data umat SIMU (Sistem Informasi Manajemen Umat), namun pada sistem Odoo, admin belum bisa memindai hasil QR Code yang dihasilkan oleh website formulir data umat baru.
 \end{enumerate}
 
 \section{Tampilan Antarmuka}
@@ -183,9 +183,23 @@ Pada pengujian ini dilakukan menggunakan data asli penulis, hanya beberapa pengi
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.4]{Gambar/formFullQRCode.png}
+	\includegraphics[scale=0.4]{Gambar/avg1.png}
 	\caption{Hasil qr code average case dari data formulir} 
-	\label{fig:formFullQRCode}
+	\label{fig:formFullQRCode1}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.4]{Gambar/avg2.png}
+	\caption{Hasil qr code average case dari data formulir} 
+	\label{fig:formFullQRCode2}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.4]{Gambar/avg3.png}
+	\caption{Hasil qr code average case dari data formulir} 
+	\label{fig:formFullQRCode3}
 \end{figure}
 
 \begin{figure}[H]
@@ -211,9 +225,23 @@ Pada pengujian kali ini, akan dimasukan data yang berisikan tulisan yang hanya m
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.4]{Gambar/qrCodeBestCase.png}
+	\includegraphics[scale=0.4]{Gambar/best1.png}
 	\caption{Hasil qr code best case dari data formulir} 
-	\label{fig:qrCodeBestCase}
+	\label{fig:qrCodeBestCase1}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.4]{Gambar/best2.png}
+	\caption{Hasil qr code best case dari data formulir} 
+	\label{fig:qrCodeBestCase2}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.4]{Gambar/best3.png}
+	\caption{Hasil qr code best case dari data formulir} 
+	\label{fig:qrCodeBestCase3}
 \end{figure}
 
 \begin{figure}[H]
@@ -239,19 +267,26 @@ Pada pengujian kali ini, akan dimasukan data yang berisikan tulisan yang panjang
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.4]{Gambar/qrCodeWorstCase.png}
+	\includegraphics[scale=0.4]{Gambar/worst1.png}
 	\caption{Hasil qr code worst case dari data formulir} 
-	\label{fig:qrCodeWorstCase}
+	\label{fig:qrCodeWorstCase1}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.4]{Gambar/hasilScanWorst.jpg}
-	\caption{Hasil scan QR Code melalui aplikasi pada handphone} 
-	\label{fig:hasilScanWorst}
+	\includegraphics[scale=0.4]{Gambar/worst2.png}
+	\caption{Hasil qr code worst case dari data formulir} 
+	\label{fig:qrCodeWorstCase2}
 \end{figure}
 
-Apabila data yang dimasukkan seperti pada gambar \ref{fig:inputWorstCase}, walaupun QR Code yang dihasilkan sangat kecil, dan hampir tidak bisa dipindai, namun setelah dilakukan pengujian, data tersebut masih dapat dipindai, hasil dari QR Code tersebut dapat dilihat pada gambar \ref{fig:hasilScanWorst}, namun QR Code memerlukan waktu yang lebih lama untuk dipindai dikarenakan QR Code berisikan banyak data.
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.4]{Gambar/worst3.png}
+	\caption{Hasil qr code worst case dari data formulir} 
+	\label{fig:qrCodeWorstCase3}
+\end{figure}
+
+Apabila data yang dimasukkan seperti pada gambar \ref{fig:inputWorstCase}, QR Code yang dihasilkan sangat kecil, dan hampir tidak bisa dipindai, terdapat beberapa QR Code dapat dipindai namun memiliki tingkat kesalahan yang cukup tinggi, sehingga QR Code yang dihasilkan tidak maksimal. Perubahan tingkat \textit{Error Correction Capability} (ECC) ini dilakukan karena apabila menggunakan tingkat yang lebih tinggi maka QR Code yang dihasilkan tidak maksimal, karena data yang dimasukkan cukup banyak, namun dengan digunakannya \textit{Error Correction Capability} (ECC) yang lebih rendah maka data yang dimasukkan dapat lebih banyak, namun QR Code memiliki resiko tidak dapat dipindai dan memiliki error yang cukup banyak.
 
 
 
