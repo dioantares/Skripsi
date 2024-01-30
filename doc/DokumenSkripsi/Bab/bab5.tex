@@ -75,8 +75,19 @@ Pada gambar \ref{fig:contohQRCodeSubmit}, apabila qr code sudah berhasil ditampi
 	\label{fig:loadBerhasil}
 \end{figure}
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.3]{Gambar/websiteHP.jpg}
+	\caption{Hasil implementasi antarmuka halaman Formulir Data Umat pada Handphone} 
+	\label{fig:websiteHP}
+\end{figure}
+
+Pada gambar \ref{fig:websiteHP} menunjukan bahwa website formulir data umat berhasil dimplementasikan secara responsif, sehingga tampilan website tidak berubah apabila dibuka diberbagai \textit{device}.
+
 \subsection{Tampilan Antarmuka Odoo}
 \label{sec:tampilanAntarmukaOdoo}
+
+Pada pembuatan tampilan antarmuka Odoo, sudah berhasil membuat module custom Odoo, namun untuk fitur yang dibutuhkan masih terdapat kesulitan untuk menyempurnakan fitur tersebut. Terdapat dua cara yang dilakukan, yaitu dengan membuat halaman yang berisikan field data umat, dan cara yang kedua yaitu dengan membuat halaman custom menggunakan controller pada Odoo.
 
 \begin{figure}[H]
 	\centering
@@ -95,6 +106,15 @@ Gambar \ref{fig:odooBuatBaru} adalah halaman custom module Odoo yang sudah berha
 \end{figure}
 
 Gambar \ref{fig:formDataUmatFull} merupakan tampilan antarmuka pada halaman Formulir Data Umat yang sudah diimplementasikan, sedangkan pada gambar \ref{fig:odooBuatBaru} merupakan halaman utama yang menampilkan data umat, lalu pada gambar \ref{fig:odooBuatBaru2} merupakan halaman odoo yang berfungsi untuk menambahkan data umat baru, untuk menuju halaman ini, admin perlu menakan tombol \textit{New} pada pojok kiri atas halaman utama.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.4]{Gambar/controllerOdoo.png}
+	\caption{Hasil pembuatan halaman html pada Odoo} 
+	\label{fig:controllerOdoo}
+\end{figure}
+
+Telah dilakukan pengujian terhadap custom halaman Odoo menggunakan Controller, cara ini dilakukan dengan cara membuat halaman baru, dengan url yang sudah kita tentukan sendiri. Contoh pembuatan halaman html custom pada odoo terdapat pada gambar \ref{fig:controllerOdoo} merupakan tampilan halaman website yang berfungsi untuk memindai QR Code, namun halaman ini baru berhasil menampilkan dan membuka camera webcam. Cara ini dilakukan karena pada saat membuat halaman custom pada Odoo langsung cukup sulit.
 
 \section{Pengujian Fungsional}
 \label{sec:pengujianFungsional}
@@ -129,20 +149,11 @@ Pengujian fungsional dilakukan secara lokal pada perangkat penulis. Berikut ini 
 		No	&	Aksi Pengguna	&	Reaksi yang diharapkan	&	Reaksi \\ \hline
 		1 	&  Membuka halaman utama & Halaman utama ditampilkan &	sesuai	\\ \hline
 		2 	&  Menekan tombol New & Menampilkan halaman dengan field data umat baru &	sesuai	\\ \hline
-		3 	&  Menekan tombol Scan & Mampu memindai kode QR  &	belum sesuai	\\ \hline
+		3 	&  Membuka akses kamera & Membuka kamera &	sesuai	\\ \hline
+		4 	&  Menekan tombol Scan & Mampu memindai kode QR  &	belum sesuai	\\ \hline
 	\end{tabular}
 	\label{table:fungsionalOdoo}
 \end{table}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.4]{Gambar/controllerOdoo.png}
-	\caption{Hasil pembuatan halaman html pada Odoo} 
-	\label{fig:controllerOdoo}
-\end{figure}
-
-Telah dilakukan pengujian terhadap custom halaman Odoo menggunakan Controller, cara ini dilakukan dengan cara membuat halaman baru, dengan url yang sudah kita tentukan sendiri. Contoh pembuatan halaman html custom pada odoo terdapat pada gambar \ref{fig:controllerOdoo}.
-
 
 \section{Pengujian Eksperimental}
 \label{sec:pengujianEksperimental}
@@ -155,15 +166,25 @@ Pengujian eksperimental dilakukan oleh \textit{handphone} penulis dengan spesifi
 	\item Android: 13
 \end{enumerate}
 
-\subsection{Pengujian Best Case}
-\label{sec:pengujianBest}
+Pada pengujian eksperimental ini dilakukan dengan cara penulis melakukan pengisian formulir dengan tiga contoh kasus, yang pertama dengan \textit{average case} yaitu berisikan data asli penulis dan benar apa adanya, yang kedua adalah \textit{best case} yaitu berisikan data yang mencakup satu huruf saja untuk setiap fieldnya, yang ketiga adalah \textit{worst case} yaitu berisikan data yang cukup panjang pada setiap fieldnya. 
+
+\subsection{Pengujian Average Case}
+\label{sec:pengujianAverage}
 
 Pada pengujian ini dilakukan menggunakan data asli penulis, hanya beberapa pengisian field dilakukan secara palsu atau tidak sesuai data penulis.
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.4]{Gambar/inputAverageCase.png}
+	\caption{Input data average case pada data formulir} 
+	\label{fig:inputAverageCase}
+\end{figure}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.4]{Gambar/formFullQRCode.png}
-	\caption{Hasil qr code dari data formulir} 
+	\caption{Hasil qr code average case dari data formulir} 
 	\label{fig:formFullQRCode}
 \end{figure}
 
@@ -176,6 +197,34 @@ Pada pengujian ini dilakukan menggunakan data asli penulis, hanya beberapa pengi
 
 Hasil pengujian ini mendapatkan hasil yang bagus, terbukti pada gambar \ref{fig:hasilScan}, walaupun qr code terlihat sangat kecil dan sulit untuk di scan, namun data yang berada didalamnya masih dapat dipindai oleh qr code scanner.
 
+\subsection{Pengujian Best Case}
+\label{sec:pengujianBest}
+
+Pada pengujian kali ini, akan dimasukan data yang berisikan tulisan yang hanya mencakup satu huruf saja, pada pengujian ini bertujuan untuk melihat apakah Qr Code yang dihasilkan dapat dipindai atau tidak, contoh input data yang dimasukkan dapat dilihat pada gambar \ref{fig:inputBestCase}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.4]{Gambar/inputBestCase.png}
+	\caption{Input data best case pada data formulir} 
+	\label{fig:inputBestCase}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.4]{Gambar/qrCodeBestCase.png}
+	\caption{Hasil qr code best case dari data formulir} 
+	\label{fig:qrCodeBestCase}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.4]{Gambar/hasilScanBest.jpg}
+	\caption{Hasil scan QR Code melalui aplikasi pada handphone} 
+	\label{fig:hasilScanBest}
+\end{figure}
+
+Hasil pengujian ini mendapatkan hasil yang bagus, terbukti pada gambar \ref{fig:hasilScanBest}, qr code terlihat sangat jelas karena hanya berisikan satu huruf data input saja.
+
 \subsection{Pengujian Worst Case}
 \label{sec:pengujianWorst}
 
@@ -184,14 +233,14 @@ Pada pengujian kali ini, akan dimasukan data yang berisikan tulisan yang panjang
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.4]{Gambar/inputWorstCase.png}
-	\caption{Input data worstcase pada data formulir} 
+	\caption{Input data worst case pada data formulir} 
 	\label{fig:inputWorstCase}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.4]{Gambar/qrCodeWorstCase.png}
-	\caption{Hasil qr code dari data formulir} 
+	\caption{Hasil qr code worst case dari data formulir} 
 	\label{fig:qrCodeWorstCase}
 \end{figure}
 

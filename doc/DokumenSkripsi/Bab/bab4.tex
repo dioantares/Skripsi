@@ -3,11 +3,8 @@
 
 Pada bab ini akan dijelaskan perancangan program yang dibuat pada penelitian ini. Perancangan terdiri dari masukan program, dan aktivitas sistem.
 
-\section{Rancangan Antarmuka}
-\label{sec:rancanganAntarmuka}
-
-\subsection{Rancangan Antarmuka Formulir Data Baru Umat}
-\label{sec:subRancanganAntarmuka}
+\section{Rancangan Antarmuka Formulir Data Baru Umat}
+\label{sec:rancanganAntarmukaFormulir}
 
 \begin{figure}[H]
 	\centering
@@ -62,6 +59,22 @@ style seperti font, warna, jarak dan lainnya ke dokumen website. Penggunaan file
 \label{sec:script}
 
 Penggunaan script dalam membangun sebuah website sangatlah penting, dalam penulisan kode <script>, tag tersebut digunakan untuk menulis script, atau lebih tepatnya adalah untuk menyisipkan script (seperti JavaScript) pada sisi client, penulisan kode script dapat dilakukan langsung di dalam element <script> , ataupun menggunakan sumber file eksternal dengan attribute src (soure). Pada website Formulir Data Umat digunakan \textit{library qrcodejs-master}, fungsinya untuk merubah text yang sudah diinput oleh umat menjadi sebuah bentuk qr code.
+
+\newpage
+
+\section{Rancangan Antarmuka Odoo}
+\label{sec:rancanganAntarmukaOdoo}
+
+Pada rancangan halaman ini, akan dibuat sebuah halaman yang dapat menampilkan data utama yang disajikan melalui tabel, selain itu, terdapat tombol untuk membuat data baru. Perancangan ini akan dilakukan dengan cara membuat halaman custom Odoo. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.8]{Gambar/mockUpOdoo.png}
+	\caption{Rancangan antarmuka halaman Odoo} 
+	\label{fig:mockupOdoo}
+\end{figure}
+
+Perancangan pembuatan halaman Odoo ini bertujuan untuk proses pengisian data secara online yang dilakukan oleh admin sehingga waktu yang dibutuhkan untuk melakukan pengisian data lebih cepat, karena pada pengisan data tersebut admin tidak perlu menulis ulang apa yang telah ditulis oleh umat pada formulir data umat baru, karena pada halaman odoo ini akan memindai qr code yang dihasilkan dari halaman formulir pendaftaran umat \ref{fig:formDataUmat}.
 
 
 
